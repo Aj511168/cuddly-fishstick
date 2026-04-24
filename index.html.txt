@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube SEO Generator</title>
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+body {font-family:sans-serif;background:#0f0f0f;color:#fff;text-align:center;padding:20px;}
+input,select{padding:10px;margin:10px;width:80%;border-radius:8px;border:none;}
+button{padding:12px 20px;background:red;color:#fff;border:none;border-radius:8px;cursor:pointer;}
+.card{background:#1a1a1a;padding:15px;margin-top:15px;border-radius:10px;}
+.tag{display:inline-block;background:#333;padding:5px 10px;margin:5px;border-radius:20px;}
+</style>
+</head>
+
+<body>
+
+<h2>YouTube SEO Generator 🔥</h2>
+
+<input type="text" id="topic" placeholder="Enter topic...">
+
+<select id="tone">
+<option>Professional</option>
+<option>Casual</option>
+<option>Urgent</option>
+<option>Educational</option>
+</select>
+
+<button onclick="generate()">Generate</button>
+
+<div id="output"></div>
+
+<script>
+function generate(){
+let topic=document.getElementById("topic").value;
+let tone=document.getElementById("tone").value;
+
+if(!topic){alert("Enter topic");return;}
+
+let titles=[
+`Best ${topic} Guide`,
+`How to ${topic}`,
+`${topic} Tips & Tricks`,
+`${topic} Explained`,
+`${topic} for Beginners`
+];
+
+let desc=`This video explains ${topic} in a simple way. Learn step by step and improve your skills.\n\nSubscribe for more!`;
+
+let tags=[topic,topic+" tutorial","learn "+topic,"best "+topic];
+
+let html="<div class='card'><h3>Titles</h3>";
+titles.forEach(t=>html+=`<p>${t}</p>`);
+
+html+=`</div><div class='card'><h3>Description</h3><p>${desc}</p></div>`;
+
+html+=`<div class='card'><h3>Tags</h3>`;
+tags.forEach(t=>html+=`<span class="tag">${t}</span>`);
+html+="</div>";
+
+document.getElementById("output").innerHTML=html;
+}
+</script>
+
+</body>
+</html>
